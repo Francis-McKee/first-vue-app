@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <CountVue :count="count"/>
+  <br/>
+  <ButtonVue name="Add" @changeCount="count += 1"/>
+  <ButtonVue name="Sub" @changeCount="count -= 1"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CountVue from './components/Count.vue'
+import ButtonVue from './components/Button.vue'
 
 export default {
   name: 'App',
+
   components: {
-    HelloWorld
+    CountVue,
+    ButtonVue
+  },
+
+  data() {
+    return {
+      count: 0
+    }
   }
+
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  
 }
 </style>
